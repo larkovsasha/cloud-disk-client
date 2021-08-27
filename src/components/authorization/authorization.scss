@@ -1,0 +1,34 @@
+@import "../../utils/colors";
+
+.registration{
+  width: 540px;
+  height: 340px;
+  border-radius: 20px;
+  padding: 5px 50px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-self: center;
+  margin-top: 200px;
+  &__header{
+    font-size: 30px;
+    font-weight: 700;
+  }
+  input{
+    margin: 10px 20px;
+  }
+  &__btn{
+    border: none;
+    background-color: $font-color;
+    border-radius: 8px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 10px 15px;
+    align-self: flex-end;
+  }
+}
+
+

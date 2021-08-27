@@ -1,0 +1,36 @@
+@import "../../utils/colors";
+
+.navbar{
+  display: flex;
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  &__logo{
+    margin-left: 20px;
+  }
+  &__header{
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: 700;
+  };
+  &__logout{
+    margin-left: auto;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  &__login{
+  margin-left: auto;
+    margin-right: 20px;
+  }
+  &__registration{
+    margin-right: 20px;
+  }
+}
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
