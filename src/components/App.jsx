@@ -6,22 +6,31 @@ import Login from "./authorization/Login";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {auth} from "../actions/user";
+import Disk from "./disk/Disk";
+import {Redirect} from 'react-router-dom'
 
 function App() {
     const isAuth = useSelector(state => state.user.isAuth)
     const dispatch = useDispatch()
+
     useEffect(() => {
         dispatch(auth())
         }
-        , [])
+        , [dispatch])
     return (
         <div className="app">
             <Navbar/>
             <div className="wrap">
-                {!isAuth &&
+                {!isAuth ?
                 <Switch>
                     <Route path='/registration' component={Registration}/>
                     <Route path='/login' component={Login}/>
+                    <Redirect to='/login'/>
+                </Switch>
+                :
+                <Switch>
+                    <Route path='/' component={Disk} exact/>
+                    <Redirect to='/'/>
                 </Switch>}
             </div>
         </div>

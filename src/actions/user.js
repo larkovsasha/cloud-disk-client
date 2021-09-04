@@ -8,7 +8,7 @@ export const registration = async (email, password) => {
             email,
             password
         })
-        alert(res.data.message)
+            alert(res.data.message)
     } catch (e) {
         alert(e)
     }
@@ -36,7 +36,7 @@ export const auth = () => {
     return async dispatch => {
         try {
             const res = await axios.get('http://localhost:5000/api/auth/auth', {headers: {Authorization: `Bearer ${ localStorage.getItem('token')}`}})
-            console.log(res)
+            //console.log(res)
             dispatch(setUser(res.data.user))
             localStorage.setItem('token', res.data.token)
         } catch (e) {
