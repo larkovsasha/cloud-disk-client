@@ -36,3 +36,21 @@
     grid-column-start: 4;
   }
 }
+
+.file-plate{
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  &__img{
+    width: 100px;
+    height: 100px;
+  }
+  &__btns{
+    display: none;
+  }
+  &:hover &__btns{
+    display: flex;
+  }
+}

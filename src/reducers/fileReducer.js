@@ -4,12 +4,15 @@ const ADD_FILE = 'ADD_FILE'
 const SET_VISIBLE_POPUP = 'SET_VISIBLE_POPUP'
 const PUSH_TO_STACK = 'PUSH_TO_STACK'
 const POP_FROM_STACK = 'POP_FROM_STACK'
+const DELETE_FILE = 'DELETE_FILE'
+const SET_SORT = 'SET_SORT'
 
 const defaultState = {
     files: [],
     currentDir: null,
     visiblePopup: false,
-    dirStack: []
+    dirStack: [],
+    sort: 'date'
 }
 export default function (state = defaultState, action) {
     switch (action.type) {
@@ -43,6 +46,16 @@ export default function (state = defaultState, action) {
                 ...state,
                 dirStack: state.dirStack.slice(0, state.dirStack.length - 1)
             }
+        case DELETE_FILE:
+            return {
+                ...state,
+                files: state.files.filter(file => file._id !== action.fileId)
+            }
+        case SET_SORT:
+            return {
+                ...state,
+                sort: action.sort
+            }
 
         default:
             return state
@@ -55,3 +68,5 @@ export const addFile = (file) => ({type: ADD_FILE, payload: file})
 export const setVisiblePopup = () => ({type: SET_VISIBLE_POPUP})
 export const pushToStack = (dir) => ({type: PUSH_TO_STACK, payload: dir})
 export const popFromStack = () => ({type: POP_FROM_STACK})
+export const deleteFileAC = (fileId) => ({type: DELETE_FILE, fileId})
+export const setSort = (sort) => ({type: SET_SORT, sort})

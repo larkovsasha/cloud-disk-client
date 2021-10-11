@@ -8,6 +8,7 @@ import {useEffect} from "react";
 import {auth} from "../actions/user";
 import Disk from "./disk/Disk";
 import {Redirect} from 'react-router-dom'
+import Profile from "./profile/profile";
 
 function App() {
     const isAuth = useSelector(state => state.user.isAuth)
@@ -30,6 +31,7 @@ function App() {
                 :
                 <Switch>
                     <Route path='/' component={Disk} exact/>
+                    <Route path='/profile' component={Profile} exact/>
                     <Redirect to='/'/>
                 </Switch>}
             </div>
